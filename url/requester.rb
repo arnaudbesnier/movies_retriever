@@ -2,7 +2,7 @@ require 'net/http'
 require 'uri'
 require 'timeout'
 
-class Reader
+class Requester
 
   attr_reader :body
 
