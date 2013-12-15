@@ -2,11 +2,12 @@
 require_relative 'url/requester'
 require_relative 'dom/reader_search'
 require_relative 'dom/reader_detail'
+require_relative 'dom/reader_teaser'
 
 class Retriever
 
   URL_SEARCH_INFO       = 'http://www.allocine.fr/recherche/'
-  URL_SEARCH_TEASER     = 'http://www.youtube.com/?gl=FR&hl=fr'
+  URL_SEARCH_TEASER     = 'http://www.youtube.com/results?search_query'
   URL_SEARCH_SOUNDTRACK = 'http://www.youtube.com/?gl=FR&hl=fr'
 
   def initialize movie_name
@@ -25,7 +26,17 @@ class Retriever
     reader_detail.retrieve_informations
 
     # Movie teaser =============================================================
+
+    request = Requester.new "#{URL_SEARCH_TEASER}=bande+annonce+#{movie_name}+fr"
+    request.parse
+
+    reader_teaser = ReaderTeaser.new request.body_parsed
+    reader_teaser.retrieve_teaser
+
     # Movie soundtrack =========================================================
+
+    # TODO
+
   end
 
 end
