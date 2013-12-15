@@ -10,7 +10,7 @@ class Retriever
 
   def initialize movie_name
 
-    # Movie informations & cover
+    # Movie informations =======================================================
     request = Requester.new "#{URL_SEARCH_INFO}?q=#{movie_name}"
     request.read
 
@@ -22,10 +22,12 @@ class Retriever
     reader = Reader.new movie_name, request.body
     reader.find_info_data
 
-    # Movie teaser
-    # Movie soundtrack
+    # Movie poster =============================================================
+    # Movie teaser =============================================================
+    # Movie soundtrack =========================================================
   end
 
 end
 
 Retriever.new 'gravity'
+Retriever.new 'scary+movie'
