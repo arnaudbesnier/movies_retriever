@@ -1,23 +1,13 @@
 # encoding: utf-8
 
-class Reader
-
-  URL_DETAIL_INFO = 'http://www.allocine.fr'
+class DetailReader
 
   def initialize movie_name, body
     @movie_name = movie_name.gsub('+', '</b>\s*<b>')
     @body = body
   end
 
-  def find_info_page
-    regexp_info_page = /(\/film\/fichefilm_gen_cfilm=\d*.html)'>\s<b>#{@movie_name}/i
-    #puts regexp_info_page
-    results = @body.scan(regexp_info_page)
-    #puts "===> INFOS : #{results.count} pages"
-    "#{URL_DETAIL_INFO}#{results.first.first}"
-  end
-
-  def find_info_data
+  def find_detail_data
     retrieve_name
     retrieve_release_date
     retrieve_genre
@@ -25,12 +15,6 @@ class Reader
     retrieve_synopsis
     retrieve_director
     retrieve_actors
-  end
-
-  def find_page_teaser
-  end
-
-  def find_page_soundtrack
   end
 
 private
