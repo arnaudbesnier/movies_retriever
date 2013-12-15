@@ -8,6 +8,7 @@ class ReaderDetail
 
   def retrieve_informations
     retrieve_name
+    retrieve_poster
     retrieve_release_date
     retrieve_genre
     retrieve_duration
@@ -22,6 +23,12 @@ private
     regexp_info_name = /property\=\"og:title\"\ content\=\"(.*?)\"[\s\/\>|\/\>]/
     @name = @body.scan(regexp_info_name).first.first
     puts " ==> name: #{@name}"
+  end
+
+  def retrieve_poster
+    regexp_info_poster = /property="og:image" content\=\"(.*?)\"[\s\/\>|\/\>]/
+    @poster = @body.scan(regexp_info_poster).first.first
+    puts " ==> poster: #{@poster}"
   end
 
   def retrieve_release_date

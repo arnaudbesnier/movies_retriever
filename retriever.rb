@@ -2,7 +2,6 @@
 require_relative 'url/requester'
 require_relative 'dom/reader_search'
 require_relative 'dom/reader_detail'
-require_relative 'dom/reader_poster'
 
 class Retriever
 
@@ -12,7 +11,7 @@ class Retriever
 
   def initialize movie_name
 
-    # Movie informations =======================================================
+    # Movie informations & poster ==============================================
     request = Requester.new "#{URL_SEARCH_INFO}?q=#{movie_name}"
     request.read
 
@@ -24,15 +23,6 @@ class Retriever
 
     reader_detail = ReaderDetail.new request.body
     reader_detail.retrieve_informations
-
-    # Movie poster =============================================================
-
-    request = Requester.new "http://www.allocine.fr/film/fichefilm-#{reader_search.movie_id}/photos/"
-    request.read
-
-    reader_detail = ReaderPoster.new request.body
-    reader_detail.retrieve_poster
-
 
     # Movie teaser =============================================================
     # Movie soundtrack =========================================================
