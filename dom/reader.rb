@@ -36,8 +36,8 @@ class Reader
 private
 
   def retrieve_name
-    regexp_info_name = /<meta itemprop=\"name\" content=\"([a-zA-Z\s]*)\">/
-    @name = @body.scan(regexp_info_name)#.first#.first
+    regexp_info_name = /property\=\"og:title\"\ content\=\"(.*?)\"[\s\/\>|\/\>]/
+    @name = @body.scan(regexp_info_name).first.first
     puts " ==> name: #{@name}"
   end
 
