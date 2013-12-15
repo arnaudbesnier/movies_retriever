@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class SearchReader
+class ReaderSearch
 
   URL_DETAIL_INFO = 'http://www.allocine.fr'
 

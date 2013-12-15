@@ -1,9 +1,8 @@
 # encoding: utf-8
 
-class DetailReader
+class ReaderDetail
 
   def initialize movie_name, body
-    @movie_name = movie_name.gsub('+', '</b>\s*<b>')
     @body = body
   end
 

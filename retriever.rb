@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require_relative 'url/requester'
-require_relative 'dom/search_reader'
-require_relative 'dom/detail_reader'
+require_relative 'dom/reader_search'
+require_relative 'dom/reader_detail'
 
 class Retriever
 
@@ -15,13 +15,13 @@ class Retriever
     request = Requester.new "#{URL_SEARCH_INFO}?q=#{movie_name}"
     request.read
 
-    reader_search = SearchReader.new movie_name, request.body
+    reader_search = ReaderSearch.new movie_name, request.body
     reader_search.find_detail_page
 
     request = Requester.new reader_search.detail_page
     request.read
 
-    reader_detail = DetailReader.new movie_name, request.body
+    reader_detail = ReaderDetail.new movie_name, request.body
     reader_detail.find_detail_data
 
     # Movie poster =============================================================
