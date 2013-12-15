@@ -8,7 +8,6 @@ class Requester
 
   def initialize url
     @url = URI.parse(url)
-    puts @url
   end
 
   def read
