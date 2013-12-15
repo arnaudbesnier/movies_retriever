@@ -2,11 +2,11 @@
 
 class ReaderDetail
 
-  def initialize movie_name, body
+  def initialize body
     @body = body
   end
 
-  def find_detail_data
+  def retrieve_informations
     retrieve_name
     retrieve_release_date
     retrieve_genre

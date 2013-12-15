@@ -2,6 +2,7 @@
 require_relative 'url/requester'
 require_relative 'dom/reader_search'
 require_relative 'dom/reader_detail'
+require_relative 'dom/reader_poster'
 
 class Retriever
 
@@ -16,19 +17,21 @@ class Retriever
     request.read
 
     reader_search = ReaderSearch.new movie_name, request.body
-    reader_search.find_detail_page
+    reader_search.retrieve_detail_page
 
     request = Requester.new reader_search.detail_page
     request.read
 
-    reader_detail = ReaderDetail.new movie_name, request.body
-    reader_detail.find_detail_data
+    reader_detail = ReaderDetail.new request.body
+    reader_detail.retrieve_informations
 
     # Movie poster =============================================================
 
     request = Requester.new "http://www.allocine.fr/film/fichefilm-#{reader_search.movie_id}/photos/"
     request.read
 
+    reader_detail = ReaderPoster.new request.body
+    reader_detail.retrieve_poster
 
 
     # Movie teaser =============================================================

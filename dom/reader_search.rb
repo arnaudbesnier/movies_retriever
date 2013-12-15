@@ -11,7 +11,7 @@ class ReaderSearch
     @body = body
   end
 
-  def find_detail_page
+  def retrieve_detail_page
     regexp_info_page = /(\/film\/fichefilm_gen_cfilm=\d*.html)'>\s<b>#{@movie_name}/i
     results   = @body.scan(regexp_info_page)
     #puts "===> INFOS : #{results.count} pages"
