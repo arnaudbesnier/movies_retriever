@@ -12,40 +12,45 @@ class Retriever
   URL_SEARCH_SOUNDTRACK = 'http://www.youtube.com/?gl=FR&hl=fr'
 
   def initialize movie_name
+    puts "\n ==> #{movie_name.upcase}"
+
+    @movie_name = movie_name.gsub(' ', '+')
+    @response   = ''
 
     # Movie informations & poster ==============================================
 
-    request = Requester.new "#{URL_SEARCH_INFO}?q=#{movie_name}"
+    request = Requester.new "#{URL_SEARCH_INFO}?q=#{@movie_name}"
     request.read
 
-    reader_search = ReaderSearch.new movie_name, request.body
+    reader_search = ReaderSearch.new @movie_name, request.body
     reader_search.retrieve_detail_page
 
     request = Requester.new reader_search.detail_page
     request.read
 
     reader_detail = ReaderDetail.new request.body
-    reader_detail.retrieve
+    @response << reader_detail.retrieve
 
     # Movie teaser =============================================================
 
-    request = Requester.new "#{URL_SEARCH_TEASER}=bande+annonce+#{movie_name}+fr"
+    request = Requester.new "#{URL_SEARCH_TEASER}=bande+annonce+#{@movie_name}+fr"
     request.parse
 
     reader_teaser = ReaderTeaser.new request.body_parsed
-    reader_teaser.retrieve
+    @response << ", '#{reader_teaser.retrieve}'"
 
     # Movie playlist ===========================================================
 
-    request = Requester.new "#{URL_SEARCH_TEASER}=original+soundtrack+#{movie_name}"
+    request = Requester.new "#{URL_SEARCH_TEASER}=original+soundtrack+#{@movie_name}"
     request.parse
 
     reader_playlist = ReaderPlaylist.new request.body_parsed
-    reader_playlist.retrieve
+    @response << ", '#{reader_playlist.retrieve}'"
 
+    puts @response
   end
 
 end
 
 Retriever.new 'gravity'
-Retriever.new 'scary+movie'
+Retriever.new 'scary movie'

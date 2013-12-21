@@ -10,7 +10,6 @@ class ReaderPlaylist
 
   def retrieve
     @playlist_url = @body.at_xpath(PLAYLIST_URL_SELECTOR).to_s
-    puts " ==> playlist_url: #{@playlist_url}"
   end
 
 end
