@@ -51,9 +51,3 @@ class Retriever
   end
 
 end
-
-Retriever.new 'the wolf of wall street'
-Retriever.new 'braveheart'
-Retriever.new 'gladiator'
-Retriever.new 'gravity'
-Retriever.new 'scary movie'
