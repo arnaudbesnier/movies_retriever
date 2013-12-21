@@ -3,6 +3,7 @@ require_relative 'url/requester'
 require_relative 'dom/reader_search'
 require_relative 'dom/reader_detail'
 require_relative 'dom/reader_teaser'
+require_relative 'dom/reader_playlist'
 
 class Retriever
 
@@ -33,7 +34,13 @@ class Retriever
     reader_teaser = ReaderTeaser.new request.body_parsed
     reader_teaser.retrieve_teaser
 
-    # Movie soundtrack =========================================================
+    # Movie playlist ===========================================================
+
+    request = Requester.new "#{URL_SEARCH_TEASER}=original+soundtrack+#{movie_name}"
+    request.parse
+
+    reader_playlist = ReaderPlaylist.new request.body_parsed
+    reader_playlist.retrieve
 
     # TODO
 
