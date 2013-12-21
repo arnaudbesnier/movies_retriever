@@ -41,7 +41,7 @@ class Retriever
 
     # Movie playlist ===========================================================
 
-    request = Requester.new "#{URL_SEARCH_TEASER}=original+soundtrack+#{@movie_name}"
+    request = Requester.new "#{URL_SEARCH_TEASER}=ost+#{@movie_name}"
     request.parse
 
     reader_playlist = ReaderPlaylist.new request.body_parsed
@@ -52,5 +52,7 @@ class Retriever
 
 end
 
+Retriever.new 'braveheart'
+Retriever.new 'gladiator'
 Retriever.new 'gravity'
 Retriever.new 'scary movie'
