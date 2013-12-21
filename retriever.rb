@@ -52,6 +52,7 @@ class Retriever
 
 end
 
+Retriever.new 'the wolf of wall street'
 Retriever.new 'braveheart'
 Retriever.new 'gladiator'
 Retriever.new 'gravity'
