@@ -14,6 +14,7 @@ class Retriever
   def initialize movie_name
 
     # Movie informations & poster ==============================================
+
     request = Requester.new "#{URL_SEARCH_INFO}?q=#{movie_name}"
     request.read
 
@@ -24,7 +25,7 @@ class Retriever
     request.read
 
     reader_detail = ReaderDetail.new request.body
-    reader_detail.retrieve_informations
+    reader_detail.retrieve
 
     # Movie teaser =============================================================
 
@@ -32,7 +33,7 @@ class Retriever
     request.parse
 
     reader_teaser = ReaderTeaser.new request.body_parsed
-    reader_teaser.retrieve_teaser
+    reader_teaser.retrieve
 
     # Movie playlist ===========================================================
 
@@ -41,8 +42,6 @@ class Retriever
 
     reader_playlist = ReaderPlaylist.new request.body_parsed
     reader_playlist.retrieve
-
-    # TODO
 
   end
 

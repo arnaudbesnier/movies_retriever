@@ -6,7 +6,7 @@ class ReaderDetail
     @body = body
   end
 
-  def retrieve_informations
+  def retrieve
     retrieve_name
     retrieve_poster
     retrieve_release_date

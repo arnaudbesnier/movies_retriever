@@ -8,7 +8,7 @@ class ReaderTeaser
     @body = body
   end
 
-  def retrieve_teaser
+  def retrieve
     @teaser_url = @body.at_xpath(TEASER_URL_SELECTOR).to_s
     puts " ==> teaser_url: #{@teaser_url}"
   end
