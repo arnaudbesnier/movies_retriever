@@ -63,7 +63,10 @@ private
 
   def format_name
     @formated_name = I18n.transliterate(@movie_name.downcase)
-    @formated_name = @formated_name.gsub('le ', '').gsub(':', '').squeeze(' ').gsub(' ', '+').gsub("'", '')
+    @formated_name = @formated_name.gsub('le ', '')
+                                   .gsub('l\'', '')
+                                   .gsub(':', '')
+                                   .squeeze(' ').gsub(' ', '+').gsub("'", '')
     @formated_name
   end
 

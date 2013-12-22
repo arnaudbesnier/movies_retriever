@@ -11,7 +11,7 @@ class BatchRetriever
     Retriever.new("gravity").search
     Retriever.new("scary movie").search
 
-    ##Retriever.new("Maman, j'ai encore raté l'avion").search
+    Retriever.new("Maman, j'ai encore raté l'avion").search
     Retriever.new("Taxi").search
     Retriever.new("Taxi 2").search
     Retriever.new("Jackie Brown").search
