@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+require 'i18n'
+
 require_relative 'url/requester'
 require_relative 'dom/reader_search'
 require_relative 'dom/reader_detail'
@@ -12,42 +14,57 @@ class Retriever
   URL_SEARCH_SOUNDTRACK = 'http://www.youtube.com/?gl=FR&hl=fr'
 
   def initialize movie_name
-    puts "\n ==> #{movie_name.upcase}"
-
-    @movie_name = movie_name.gsub(' ', '+')
+    @movie_name = movie_name
     @response   = ''
+    format_name
+  end
 
-    # Movie informations & poster ==============================================
+  def search
+    begin
+      puts "\n ==> #{@movie_name.upcase} (#@formated_name)"
 
-    request = Requester.new "#{URL_SEARCH_INFO}?q=#{@movie_name}"
-    request.read
+      # Movie informations & poster ============================================
 
-    reader_search = ReaderSearch.new @movie_name, request.body
-    reader_search.retrieve_detail_page
+      request = Requester.new "#{URL_SEARCH_INFO}?q=#{@formated_name}"
+      request.read
 
-    request = Requester.new reader_search.detail_page
-    request.read
+      reader_search = ReaderSearch.new @formated_name, request.body
+      reader_search.retrieve_detail_page
 
-    reader_detail = ReaderDetail.new request.body
-    @response << reader_detail.retrieve
+      request = Requester.new reader_search.detail_page
+      request.read
 
-    # Movie teaser =============================================================
+      reader_detail = ReaderDetail.new request.body
+      @response << reader_detail.retrieve
 
-    request = Requester.new "#{URL_SEARCH_TEASER}=bande+annonce+#{@movie_name}+fr"
-    request.parse
+      # Movie teaser ===========================================================
 
-    reader_teaser = ReaderTeaser.new request.body_parsed
-    @response << ", '#{reader_teaser.retrieve}'"
+      request = Requester.new "#{URL_SEARCH_TEASER}=bande+annonce+#{@formated_name}+fr"
+      request.parse
 
-    # Movie playlist ===========================================================
+      reader_teaser = ReaderTeaser.new request.body_parsed
+      @response << ", '#{reader_teaser.retrieve}'"
 
-    request = Requester.new "#{URL_SEARCH_TEASER}=ost+#{@movie_name}"
-    request.parse
+      # Movie playlist =========================================================
 
-    reader_playlist = ReaderPlaylist.new request.body_parsed
-    @response << ", '#{reader_playlist.retrieve}'"
+      request = Requester.new "#{URL_SEARCH_TEASER}=ost+#{@formated_name}"
+      request.parse
 
-    puts @response
+      reader_playlist = ReaderPlaylist.new request.body_parsed
+      @response << ", '#{reader_playlist.retrieve}'"
+
+      puts @response
+    rescue
+      puts "    ===> ERROR"
+    end
+  end
+
+private
+
+  def format_name
+    @formated_name = I18n.transliterate(@movie_name.downcase)
+    @formated_name = @formated_name.gsub('le ', '').gsub(':', '').squeeze(' ').gsub(' ', '+').gsub("'", '')
+    @formated_name
   end
 
 end
