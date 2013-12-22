@@ -4,11 +4,11 @@ require_relative 'lib/retriever'
 
 class BatchRetriever
 
-  def initialize
+  def initialize input_file='example.txt'
     puts '  ==> READING...'
     @movies = []
 
-    file = File.new("input/example.txt", "r")
+    file = File.new("input/#{input_file}", 'r')
     while line = file.gets
       @movies << line.split("\n").first
     end
