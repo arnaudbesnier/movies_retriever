@@ -10,6 +10,7 @@ class ReaderTeaser
 
   def retrieve
     @teaser_url = @body.at_xpath(TEASER_URL_SELECTOR).to_s
+    @teaser_url ? "http://www.youtube.com#{@teaser_url}" : ''
   end
 
 end
