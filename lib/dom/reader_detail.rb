@@ -23,6 +23,7 @@ private
 
   def retrieve_name
     regexp_info_name = /property\=\"og:title\"\ content\=\"(.*?)\"[\s\/\>|\/\>]/
+    # TODO: fix name format
     @name = @body.scan(regexp_info_name).first.first
   end
 
@@ -47,6 +48,7 @@ private
   end
 
   def retrieve_synopsis
+    # TODO: fix synopsis format
     regexp_info_synopsis = /<p itemprop="description">\s*(.*)/
     @synopsis = format(@body.scan(regexp_info_synopsis).first.first)
   end
@@ -57,6 +59,7 @@ private
   end
 
   def retrieve_actors
+    # TODO: remove the director from the list (first element)
     regexp_info_actors = /<a title=\"([a-zA-Z\s]*)\" href=\"\/personne\/fichepersonne_gen_cpersonne/
     @actors = @body.scan(regexp_info_actors).flatten.join(', ')
   end
@@ -66,7 +69,7 @@ private
   end
 
   def format_response
-    "'#@name', '#@poster', '#@release_date', '#@genre', '#@duration', '#@synopsis', '#@director', '#@actors'"
+    "\"#@name\", \"#@poster\", \"#@release_date\", \"#@genre\", \"#@duration\", \"#@synopsis\", \"#@director\", \"#@actors\""
   end
 
 end

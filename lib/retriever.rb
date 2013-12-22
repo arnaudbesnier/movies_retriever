@@ -43,7 +43,7 @@ class Retriever
       request.parse
 
       reader_teaser = ReaderTeaser.new request.body_parsed
-      @response << ", '#{reader_teaser.retrieve}'"
+      @response << ", \"#{reader_teaser.retrieve}\""
 
       # Movie playlist =========================================================
 
@@ -51,7 +51,7 @@ class Retriever
       request.parse
 
       reader_playlist = ReaderPlaylist.new request.body_parsed
-      @response << ", '#{reader_playlist.retrieve}'\n"
+      @response << ", \"#{reader_playlist.retrieve}\"\n"
 
     rescue
       puts "    ===> ERROR"
