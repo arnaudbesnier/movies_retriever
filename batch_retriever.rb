@@ -5,6 +5,7 @@ require_relative 'lib/retriever'
 class BatchRetriever
 
   def initialize
+    puts '  ==> READING...'
     @movies = []
 
     file = File.new("input/example.txt", "r")
@@ -17,6 +18,7 @@ class BatchRetriever
   end
 
   def work
+    puts '  ==> WORKING...'
     @movies.each do |movie|
       movie_data = Retriever.new(movie).search
       @data << movie_data ? movie_data : ''
@@ -29,8 +31,9 @@ class BatchRetriever
   end
 
   def write
-    timestamp = Time.now.to_i
-    file = File.open("./#{timestamp}.csv", 'w')
+    puts '  ==> WRITING...'
+    timestamp = Time.now.strftime("%Y%m%d-%H%M%S")
+    file = File.open("./output/#{timestamp}.csv", 'w')
     file.write(@data)
     file.close
   end

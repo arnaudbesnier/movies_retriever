@@ -21,7 +21,7 @@ class Retriever
 
   def search
     begin
-      puts " == #{@movie_name.upcase} (#@formated_name)"
+      puts "   == #{@movie_name.upcase} (#@formated_name)"
 
       # Movie informations & poster ============================================
 
