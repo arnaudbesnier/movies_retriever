@@ -41,7 +41,7 @@ class BatchRetriever
   ]
 
   def initialize
-    @data = 'name, poster, release_date, genre, duration, synopsis, director, actors, teaser, playlist\n'
+    @data = "name, poster, release_date, genre, duration, synopsis, director, actors, teaser, playlist\n"
   end
 
   def work
@@ -56,8 +56,14 @@ class BatchRetriever
     puts @data
   end
 
+  def write
+    file = File.open('./some_file.csv', 'w')
+    file.write(@data)
+    file.close
+  end
+
 end
 
 batch_retriever = BatchRetriever.new
 batch_retriever.work
-batch_retriever.see
+batch_retriever.write
