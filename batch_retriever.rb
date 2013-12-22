@@ -4,11 +4,11 @@ require_relative 'lib/retriever'
 
 class BatchRetriever
 
-  def initialize input_file='example.txt'
+  def initialize input_file='input/example.txt'
     puts '  ==> READING...'
     @movies = []
 
-    file = File.new("input/#{input_file}", 'r')
+    file = File.new("#{input_file}", 'r')
     while line = file.gets
       @movies << line.split("\n").first
     end
@@ -40,6 +40,6 @@ class BatchRetriever
 
 end
 
-batch_retriever = BatchRetriever.new
+batch_retriever = ARGV.size == 1 ? BatchRetriever.new(ARGV[0]) : BatchRetriever.new
 batch_retriever.work
 batch_retriever.write
