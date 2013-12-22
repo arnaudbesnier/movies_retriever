@@ -21,7 +21,7 @@ class Retriever
 
   def search
     begin
-      puts "\n ==> #{@movie_name.upcase} (#@formated_name)"
+      puts " == #{@movie_name.upcase} (#@formated_name)"
 
       # Movie informations & poster ============================================
 
@@ -51,11 +51,11 @@ class Retriever
       request.parse
 
       reader_playlist = ReaderPlaylist.new request.body_parsed
-      @response << ", '#{reader_playlist.retrieve}'"
+      @response << ", '#{reader_playlist.retrieve}'\n"
 
-      puts @response
     rescue
       puts "    ===> ERROR"
+      @response
     end
   end
 
