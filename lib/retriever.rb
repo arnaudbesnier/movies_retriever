@@ -15,13 +15,14 @@ class Retriever
 
   def initialize movie_name
     @movie_name = movie_name
-    @response   = ''
+    @response   = {}
+    @completed  = false
     format_name
   end
 
   def search
     begin
-      puts "   == #{@movie_name.upcase} (#@formated_name)"
+      puts "       == #{@movie_name.upcase} (#@formated_name)"
 
       # Movie informations & poster ============================================
 
@@ -35,7 +36,10 @@ class Retriever
       request.read
 
       reader_detail = ReaderDetail.new request.body
-      @response << reader_detail.retrieve
+      data_detail = reader_detail.retrieve
+
+      return self if data_detail.nil?
+      @response.merge! data_detail
 
       # Movie teaser ===========================================================
 
@@ -43,7 +47,10 @@ class Retriever
       request.parse
 
       reader_teaser = ReaderTeaser.new request.body_parsed
-      @response << ", \"#{reader_teaser.retrieve}\""
+      data_teaser = reader_teaser.retrieve
+
+      return self if data_teaser.nil?
+      @response.merge! data_teaser
 
       # Movie playlist =========================================================
 
@@ -51,12 +58,28 @@ class Retriever
       request.parse
 
       reader_playlist = ReaderPlaylist.new request.body_parsed
-      @response << ", \"#{reader_playlist.retrieve}\"\n"
+      data_playlist = reader_playlist.retrieve
 
-    rescue
-      puts "    ===> ERROR"
-      @response
+      return self if data_playlist.nil?
+      @response.merge! data_playlist
+
+      @completed = true
+      self
+
+    rescue Exception => e
+      puts "    ===> ERROR: #{e}"
+      nil
     end
+  end
+
+  def completed?
+    @completed
+  end
+
+  def csv
+    csv = ''
+    @response.each { |key, value| csv << "\"#{value}\", " }
+    "#{csv[0..-1]}\n"
   end
 
 private

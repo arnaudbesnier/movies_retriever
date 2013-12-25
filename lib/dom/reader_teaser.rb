@@ -2,15 +2,25 @@
 
 class ReaderTeaser
 
-  TEASER_URL_SELECTOR = "//div[@class='yt-lockup-content']/h3/a/@href"
+  URL_TEASER_SELECTOR = "//div[@class='yt-lockup-content']/h3/a/@href"
 
   def initialize body
     @body = body
   end
 
   def retrieve
-    @teaser_url = @body.at_xpath(TEASER_URL_SELECTOR).to_s
-    @teaser_url ? "http://www.youtube.com#{@teaser_url}" : ''
+    @url_teaser = @body.at_xpath(URL_TEASER_SELECTOR).to_s
+    @url_teaser = nil if @url_teaser.empty?
+
+    completed? ? response : nil
+  end
+
+  def response
+    { url_teaser: "http://www.youtube.com#@url_teaser" }
+  end
+
+  def completed?
+    !@url_teaser.nil?
   end
 
 end

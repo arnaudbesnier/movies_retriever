@@ -2,15 +2,26 @@
 
 class ReaderPlaylist
 
-  PLAYLIST_URL_SELECTOR = "//div[@class='yt-lockup-meta']/a/@href"
+  URL_PLAYLIST_SELECTOR = "//div[@class='yt-lockup-meta']/a/@href"
 
   def initialize body
     @body = body
   end
 
   def retrieve
-    @playlist_url = @body.at_xpath(PLAYLIST_URL_SELECTOR).to_s
-    @playlist_url ? @playlist_url.gsub('/playlist?list=PL', '') : ''
+    @url_playlist = @body.at_xpath(URL_PLAYLIST_SELECTOR).to_s
+    @url_playlist.gsub!('/playlist?list=PL', '')
+    @url_playlist = nil if @url_playlist.empty?
+
+    completed? ? response : nil
+  end
+
+  def response
+    { url_playlist: @url_playlist }
+  end
+
+  def completed?
+    !@url_playlist.nil?
   end
 
 end

@@ -14,28 +14,45 @@ class BatchRetriever
     end
     file.close
 
-    @data = "name, poster, release_date, genre, duration, synopsis, director, actors, teaser, playlist\n"
+    @data_success = ''
+    @data_errors  = ''
   end
 
   def work
     puts '  ==> WORKING...'
     @movies.each do |movie|
       movie_data = Retriever.new(movie).search
-      @data << movie_data ? movie_data : ''
+      if movie_data.completed?
+        @data_success << movie_data.csv
+      else
+        @data_errors << movie_data.csv
+      end
     end
     return
   end
 
   def see
-    puts @data
+    puts @data_success
   end
 
   def write
     puts '  ==> WRITING...'
     timestamp = Time.now.strftime("%Y%m%d-%H%M%S")
-    file = File.open("./output/#{timestamp}.csv", 'w')
-    file.write(@data)
+
+    write_data_in_file "#{timestamp}_success", @data_success if @data_success != ''
+    write_data_in_file "#{timestamp}_errors",  @data_errors  if @data_errors != ''
+  end
+
+private
+
+  def write_data_in_file filename, data
+    file = File.open("./output/#{filename}.csv", 'w')
+    file.write("#{csv_columns}#{data}")
     file.close
+  end
+
+  def csv_columns
+    "name, poster, release_date, genre, duration, synopsis, director, actors, teaser, playlist\n"
   end
 
 end

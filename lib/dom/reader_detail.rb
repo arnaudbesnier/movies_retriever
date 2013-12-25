@@ -7,16 +7,21 @@ class ReaderDetail
   end
 
   def retrieve
-    retrieve_name
-    retrieve_poster
-    retrieve_release_date
-    retrieve_genre
-    retrieve_duration
-    retrieve_synopsis
-    retrieve_director
-    retrieve_actors
+    begin
+      retrieve_name
+      retrieve_poster
+      retrieve_release_date
+      retrieve_genre
+      retrieve_duration
+      retrieve_synopsis
+      retrieve_director
+      retrieve_actors
 
-    format_response
+      completed? ? response : nil
+    rescue Exception => e
+      puts " ====> #{e}"
+      nil
+    end
   end
 
 private
@@ -68,8 +73,25 @@ private
     html.gsub(/<p[^>]*>/, '').gsub(/<\/p>/, '')
   end
 
-  def format_response
-    "\"#@name\", \"#@poster\", \"#@release_date\", \"#@genre\", \"#@duration\", \"#@synopsis\", \"#@director\", \"#@actors\""
+  def response
+    {
+      name:         @name,
+      poster:       @poster,
+      release_date: @release_date,
+      genre:        @genre,
+      duration:     @duration,
+      synopsis:     @synopsis,
+      director:     @director,
+      actors:       @actors
+    }
   end
+
+  def completed?
+    !@name.nil? && !@poster.nil? && !@release_date.nil? && !@genre.nil? && !@duration.nil? && !@synopsis.nil? && !@director.nil? && !@actors.nil?
+  end
+
+  # def csv
+  #   "\"#@name\", \"#@poster\", \"#@release_date\", \"#@genre\", \"#@duration\", \"#@synopsis\", \"#@director\", \"#@actors\""
+  # end
 
 end
