@@ -17,7 +17,7 @@ class ReaderPlaylist
   end
 
   def response
-    { url_playlist: @url_playlist }
+    { url_playlist: "http://gdata.youtube.com/feeds/api/playlists/#@url_playlist?alt=rss" }
   end
 
   def completed?

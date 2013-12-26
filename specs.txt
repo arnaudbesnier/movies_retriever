@@ -1,0 +1,20 @@
+playlist "soundtrack" ex: taxi dans youtube
+clicker sur la playlist
+récupèrer dans url  list=PLXXXXXXXXXX => XXXXXX
+
+
+recherche youtube bande annonce "le film" FR => première url
+
+
+
+===============
+
+
+dans allociné fiche du film infos de base
++ affiche du film de photo => url image
+
+===============
+
+en CSV
+
+
