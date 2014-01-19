@@ -21,22 +21,21 @@ class BatchRetriever
   def work
     puts '  ==> WORKING...'
     @movies.each do |movie|
-      movie_data  = Retriever.new(movie)
-      movie_alias = movie_data.alias
+      movie_retriever = Retriever.new(movie)
+      movie_alias     = movie_retriever.alias
 
       if in_cache? movie_alias
-        puts "       CACHE == #{movie_data.name} (#{movie_data.alias})"
+        puts "       CACHE == #{movie_retriever.name} (#{movie_retriever.alias})"
         @data_success << cache_read(movie_alias)
       else
-        puts "       SEARCH == #{movie_data.name} (#{movie_data.name_formated})"
-        movie_data = movie_data.search
-        if movie_data.completed?
-          csv_data = movie_data.csv
-          @data_success << csv_data
-        else
-          @data_errors << movie_data.csv
-        end
-        cache_insert movie_alias, csv_data
+        puts "       SEARCH == #{movie_retriever.name} (#{movie_retriever.name_formated})"
+        movie_retriever.search
+        #if movie_retriever.completed?
+          @data_success << movie_retriever.csv.force_encoding('UTF-8')
+        # else
+        #   @data_errors << movie_retriever.csv.force_encoding('UTF-8')
+        # end
+        cache_insert movie_alias, movie_retriever.csv
       end
     end
     return
@@ -77,7 +76,7 @@ private
   end
 
   def cache_read name
-    File.read("./cache/#{name}.cache")
+    File.read("./cache/#{name}.cache").force_encoding('UTF-8')
   end
 
 end
