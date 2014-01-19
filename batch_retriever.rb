@@ -52,7 +52,7 @@ private
   end
 
   def csv_columns
-    "media_ID, media_ok, media_type, media_titre, media_playlist, media_pseudo, media_affiche, media_date_sortie, media_realisateurs, media_acteurs, media_genre, media_nationalite, media_annonce, media_nbSaison, media_synopsis, media_nbVisite, media_date_ajout, media_last_mod, media_nbCom, media_lien_amazone, media_etat, media_supprimer, media_youtube, media_youtube2, media_youtube3\n"
+    "media_ID,media_ok,media_type,media_titre,media_playlist,media_pseudo,media_affiche,media_date_sortie,media_realisateurs,media_acteurs,media_genre,media_nationalite,media_annonce,media_nbSaison,media_synopsis,media_nbVisite,media_date_ajout,media_last_mod,media_nbCom,media_lien_amazone,media_etat,media_supprimer,media_youtube,media_youtube2,media_youtube3\n"
   end
 
 end

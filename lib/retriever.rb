@@ -77,7 +77,7 @@ class Retriever
   end
 
   def csv
-    csv = ", 0, film, \"#{@response[:name]}\", \"#{@response[:url_playlist]}\", admin, \"#{@response[:poster]}\", \"#{@response[:release_date]}\", \"#{@response[:director]}\", \"#{@response[:actors]}\", \"#{@response[:genre]}\", , , , \"#{@response[:synopsis]}\", 0, , , 0, , 1, 0, \"#{@response[:url_teaser]}\", , \n"
+    csv = ",0,film,\"#{@response[:name]}\",\"#{@response[:url_playlist]}\",admin,\"#{@response[:poster]}\",\"#{@response[:release_date]}\",\"#{@response[:director]}\",\"#{@response[:actors]}\",\"#{@response[:genre]}\",,,,\"#{@response[:synopsis]}\",0,,,0,,1,0,\"#{@response[:url_teaser]}\",,\n"
   end
 
 private
