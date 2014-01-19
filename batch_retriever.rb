@@ -21,11 +21,22 @@ class BatchRetriever
   def work
     puts '  ==> WORKING...'
     @movies.each do |movie|
-      movie_data = Retriever.new(movie).search
-      if movie_data.completed?
-        @data_success << movie_data.csv
+      movie_data  = Retriever.new(movie)
+      movie_alias = movie_data.alias
+
+      if in_cache? movie_alias
+        puts "       CACHE == #{movie_data.name} (#{movie_data.alias})"
+        @data_success << cache_read(movie_alias)
       else
-        @data_errors << movie_data.csv
+        puts "       SEARCH == #{movie_data.name} (#{movie_data.name_formated})"
+        movie_data = movie_data.search
+        if movie_data.completed?
+          csv_data = movie_data.csv
+          @data_success << csv_data
+        else
+          @data_errors << movie_data.csv
+        end
+        cache_insert movie_alias, csv_data
       end
     end
     return
@@ -40,7 +51,7 @@ class BatchRetriever
     timestamp = Time.now.strftime("%Y%m%d-%H%M%S")
 
     write_data_in_file "#{timestamp}_success", @data_success if @data_success != ''
-    write_data_in_file "#{timestamp}_errors",  @data_errors  if @data_errors != ''
+    write_data_in_file "#{timestamp}_errors",  @data_errors  if @data_errors  != ''
   end
 
 private
@@ -53,6 +64,20 @@ private
 
   def csv_columns
     "media_ID,media_ok,media_type,media_titre,media_playlist,media_pseudo,media_affiche,media_date_sortie,media_realisateurs,media_acteurs,media_genre,media_nationalite,media_annonce,media_nbSaison,media_synopsis,media_nbVisite,media_date_ajout,media_date_last_mod,media_nbCom,media_lien_amazone,media_etat,media_supprimer,media_youtube,media_youtube2,media_youtube3\n"
+  end
+
+  def in_cache? name
+    File.exist?("./cache/#{name}.cache")
+  end
+
+  def cache_insert name, data
+    file = File.open("./cache/#{name}.cache", 'w')
+    file.write(data)
+    file.close
+  end
+
+  def cache_read name
+    File.read("./cache/#{name}.cache")
   end
 
 end

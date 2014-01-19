@@ -13,8 +13,10 @@ class Retriever
   URL_SEARCH_TEASER     = 'http://www.youtube.com/results?search_query'
   URL_SEARCH_SOUNDTRACK = 'http://www.youtube.com/?gl=FR&hl=fr'
 
-  def initialize movie_name
-    @movie_name = movie_name
+  attr_reader :name, :alias, :name_formated
+
+  def initialize name
+    @name = name
     @response   = {}
     @completed  = false
     format_name
@@ -22,14 +24,13 @@ class Retriever
 
   def search
     begin
-      puts "       == #{@movie_name.upcase} (#@formated_name)"
 
       # Movie informations & poster ============================================
 
-      request = Requester.new "#{URL_SEARCH_INFO}?q=#{@formated_name}"
+      request = Requester.new "#{URL_SEARCH_INFO}?q=#{@name_formated}"
       request.read
 
-      reader_search = ReaderSearch.new @formated_name, request.body
+      reader_search = ReaderSearch.new @name_formated, request.body
       reader_search.retrieve_detail_page
 
       request = Requester.new reader_search.detail_page
@@ -43,7 +44,7 @@ class Retriever
 
       # Movie teaser ===========================================================
 
-      request = Requester.new "#{URL_SEARCH_TEASER}=bande+annonce+#{@formated_name}+fr"
+      request = Requester.new "#{URL_SEARCH_TEASER}=bande+annonce+#{@name_formated}+fr"
       request.parse
 
       reader_teaser = ReaderTeaser.new request.body_parsed
@@ -54,7 +55,7 @@ class Retriever
 
       # Movie playlist =========================================================
 
-      request = Requester.new "#{URL_SEARCH_TEASER}=ost+#{@formated_name}"
+      request = Requester.new "#{URL_SEARCH_TEASER}=ost+#{@name_formated}"
       request.parse
 
       reader_playlist = ReaderPlaylist.new request.body_parsed
@@ -83,12 +84,15 @@ class Retriever
 private
 
   def format_name
-    @formated_name = I18n.transliterate(@movie_name.downcase)
-    @formated_name = @formated_name.gsub('le ', '')
+    @name_formated = I18n.transliterate(@name.downcase)
+    @name_formated = @name_formated.gsub(/$le /, '')
                                    .gsub('l\'', '')
                                    .gsub(':', '')
+                                   .gsub('-', ' ')
+                                   .gsub('d\'', '')
                                    .squeeze(' ').gsub(' ', '+').gsub("'", '')
-    @formated_name
+    @name_formated
+    @alias = @name_formated.gsub('+', '_')
   end
 
 end
