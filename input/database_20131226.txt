@@ -178,7 +178,7 @@ Les Dents de la Mer
 Mary Poppins
 Frida
 Nous étions soldats
-Stardust le mystre de l'étoile
+Stardust le mystère de l'étoile
 Le Jeu de la mort
 Troie
 Crocodile Dundee
@@ -187,24 +187,24 @@ Le Temps d'un automne
 Monty Python sacré Graal
 Chat noir chat blanc
 Le Secret des poignards volants
-La Plante au trésor un nouvel univers
+La Planète au trésor un nouvel univers
 Alive
 Watchmen - Les Gardiens
 Dinosaure
 Hairspray
-L'Assassinat de Jesse James par le l‰che Robert Ford
+L'Assassinat de Jesse James par le lâche Robert Ford
 Rambo
-WALLáE
-L'Etrange No‘l de M. Jack
-Le Monde de Narnia Chapitre 1 Le lion la sorcire blanche et l'armoire magique
+WALL-E
+L'Etrange Noël de M. Jack
+Le Monde de Narnia Chapitre 1 Le lion la sorcèire blanche et l'armoire magique
 Rocky IV
 Eternal Sunshine of the Spotless Mind
 Ascenseur pour l'échafaud
-La Belle et la Bte
+La Belle et la Bête
 Paris
 Michel Vaillant
 La Mélodie du bonheur
-Moulin Rouge !
+Moulin Rouge
 King Kong
 La Vengeance du serpent à plumes
 LOL (Laughing Out Loud)
@@ -216,10 +216,10 @@ American Beauty
 Philadelphia
 The Rocky Horror Picture Show
 Gangs of New York
-Rencontres du 3me type
+Rencontres du 3ème type
 Fast and Furious
 Les Chariots de feu
-Indiana Jones et le Royaume du Cr‰ne de Cristal
+Indiana Jones et le Royaume du Crâne de Cristal
 Il était une fois
 Good Night and Good Luck.
 Stalingrad
@@ -233,10 +233,10 @@ Little Miss Sunshine
 Ma 6-T va crack-er
 Chicken Run
 Rambo II : la mission
-Kirikou et les btes sauvages
+Kirikou et les bêtes sauvages
 2001 : l'odyssée de l'espace
 La Vengeance dans la peau
-Un long dimanche de fianailles
+Un long dimanche de fiançailles
 La Passion du Christ
 Un Homme d'exception
 Bons Baisers de Bruges
@@ -252,7 +252,7 @@ Faubourg 36
 Mirrors
 L'étrange histoire de Benjamin Button
 Ratatouille
-Love (et ses petits desastres)
+Love (et ses petits désastres)
 The reader
 Hancock
 Mes amis mes amours
@@ -261,7 +261,7 @@ Parlez-moi de la pluie
 Inglourious Basterds
 Complices
 RTT
-La dame de trfle
+La dame de trëfle
 Agora
 La Terre de la folie
 L'empreinte de l'ange
@@ -270,7 +270,7 @@ Le Silence de Lorna
 Darfour : du sable et des larmes
 Bienvenue chez les Ch'tis
 The X files - Le film
-Les trois frres
+Les trois frères
 21 grammes
 Full Metal Jacket
 Apocalypse Now
@@ -415,7 +415,7 @@ Les Bronzés 3 amis pour la vie
 Les Bronzés font du ski
 Les Bronzés
 Un Jour sans fin
-Le Pre No‘l est une ordure
+Le Pre Noël est une ordure
 Tonnerre sous les Tropiques
 OSS 117 : Rio ne répond plus
 OSS 117 Le Caire nid d'espions
