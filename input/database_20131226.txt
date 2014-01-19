@@ -34,7 +34,6 @@ Transformers
 Transformers 3 - La Face cachée de la Lune
 Transformers 2: la Revanche
 Apollo 13
-Pushing Daisies
 Le Seigneur des anneaux : la communauté de l'anneau
 Le Seigneur des anneaux : les deux tours
 Le Seigneur des anneaux : le retour du roi
@@ -53,23 +52,16 @@ La Chute du faucon noir
 Le Fabuleux destin d'Amélie Poulain
 The Prodigies
 Drive
-Stargate Universe
 Polisse
 Good Morning England
 Blanche-Neige et le chasseur
-Hero Corp
 La Cité de Dieu
-Stargate SG-1
-Borderlandss
-Batman Arkham City
 Kick-Ass
-Weeds
 Taken
-Friends
-L'åge de glace
-L'åge de glace : La dérive des continents
-L'åge de glace 3 - Le Temps des dinosaures
-L'åge de glace 2
+L'âge de glace
+L'âge de glace : La dérive des continents
+L'âge de glace 3 - Le Temps des dinosaures
+L'âge de glace 2
 La Boum
 La Boum 2
 Iron Man
@@ -80,15 +72,13 @@ The Amazing Spider-Man
 Spider-Man 2
 Spider-Man
 Spider-Man 3
-Le Dernier samoura•
-Nip Tuck
+Le Dernier samouraï
 Les petits mouchoirs
 Tron l'héritage
-Ne le dis ˆ personne
+Ne le dis à personne
 Astérix et Obélix : au service de Sa Majesté
 Inception
 Captain America : First Avenger
-Max Payne 3
 Les Seigneurs
 Le Grand bleu
 X-Men: Le Commencement
@@ -106,7 +96,6 @@ Prometheus
 Raiponce
 Le Gendarme de Saint-Tropez
 Skyfall
-MacGyver
 Danse avec les loups
 Fight Club
 Sept vies
@@ -127,17 +116,17 @@ Toy Story 3
 Les Enfants Loups Ame and Yuki
 Le Roi Lion
 Vol au-dessus d'un nid de coucou
-12 hommes en colre
+12 hommes en colère
 Les Affranchis
 Le Hobbit : un voyage inattendu
 Le Bon la brute et le truand
 Il était une fois en Amérique
 Il était une fois dans l'Ouest
 La Couleur des sentiments
-Le Parrain 2eme partie
+Le Parrain 2
 Edward aux mains d'argent
 Les Cinq légendes
-Amitiés sincres
+Amitiés sincères
 Le Monde de Nemo
 Hitchcock
 Ernest et Célestine
@@ -147,9 +136,9 @@ Chantons sous la pluie
 Le Monde de Charlie
 Hasta la vista
 Et maintenant on va o
-Minuit ˆ Paris
+Minuit à Paris
 Café de Flore
-De l'ombre ˆ la lumire
+De l'ombre à la lumire
 Twilight - Chapitre 5 : Révélation 2e partie
 L'Odyssée de Pi
 Promised Land
@@ -164,16 +153,13 @@ Matrix
 Matrix Revolutions
 Matrix Reloaded
 La Liste de Schindler
-Glee
-The Big Bang Theory
-Vampire Diaries
-Pirates des Cara•bes : le Secret du Coffre Maudit
+Pirates des Caraïbes : le Secret du Coffre Maudit
 Gossip Girl
-Pirates des Cara•bes : la Fontaine de Jouvence
+Pirates des Caraïbes : la Fontaine de Jouvence
 Supernatural
 Les Griffin
 Alice au Pays des Merveilles
-Pirates des Cara•bes : Jusqu'au Bout du Monde
+Pirates des Caraïbes : Jusqu'au Bout du Monde
 Grey's Anatomy
 True Blood
 Modern Family
@@ -229,7 +215,7 @@ Michel Vaillant
 La Mélodie du bonheur
 Moulin Rouge !
 King Kong
-La Vengeance du serpent ˆ plumes
+La Vengeance du serpent à plumes
 LOL (Laughing Out Loud)
 La Leon de piano
 Da Vinci Code
@@ -378,13 +364,13 @@ Seven
 Shining
 Epic : la bataille du royaume secret
 Le Chanteur de jazz
-Débuts ˆ Broadway
+Débuts à Broadway
 Les Demoiselles de Rochefort
 Embrasse-moi chérie
 La Fivre du samedi soir
 L'Inconnu de Las Vegas
 Match d'amour
-Un Américain ˆ Paris
+Un Américain à Paris
 West Side Story
 42me rue
 The Blues Brothers
@@ -487,7 +473,7 @@ Star Trek Into Darkness
 The Bling Ring
 Man of Steel
 Jack Reacher
-Jusqu'ˆ ce que la fin du monde nous sépare
+Jusqu'à ce que la fin du monde nous sépare
 Les Btes du sud sauvage
 Cogan : Killing Them Softly
 Silent Hill 2 : Revelation 3D
@@ -512,7 +498,7 @@ The Dictator
 Ce qui vous attend si vous attendez un enfant
 21 Jump Street
 Madagascar 3
-7 jours ˆ la Havane
+7 jours à la Havane
 Sur la route
 Cosmopolis
 Moonrise Kingdom
@@ -529,7 +515,7 @@ Maman j'ai encore raté l'avion
 Taxi
 Taxi 2
 Jackie Brown
-Miami vice - Deux flics ˆ Miami
+Miami vice - Deux flics à Miami
 Cellular
 Le Monde Perdu : Jurassic Park
 Jurassic Park
