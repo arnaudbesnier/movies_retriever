@@ -30,12 +30,13 @@ class BatchRetriever
       else
         puts "       SEARCH == #{movie_retriever.name} (#{movie_retriever.name_formated})"
         movie_retriever.search
-        #if movie_retriever.completed?
+        if movie_retriever.completed?
           @data_success << movie_retriever.csv.force_encoding('UTF-8')
-        # else
-        #   @data_errors << movie_retriever.csv.force_encoding('UTF-8')
-        # end
-        cache_insert movie_alias, movie_retriever.csv
+          cache_insert movie_alias, movie_retriever.csv
+        else
+          @data_errors << movie_retriever.csv.force_encoding('UTF-8')
+        end
+
       end
     end
     return
