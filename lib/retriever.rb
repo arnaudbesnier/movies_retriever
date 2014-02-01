@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 require 'i18n'
 
 require_relative 'url/requester'
@@ -90,8 +89,8 @@ private
                                    .gsub(':', '')
                                    .gsub('-', ' ')
                                    .gsub('d\'', '')
+                                   .gsub('?', '')
                                    .squeeze(' ').gsub(' ', '+').gsub("'", '')
-    @name_formated
     @alias = @name_formated.gsub('+', '_')
   end
 
